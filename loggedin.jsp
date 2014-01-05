@@ -10,4 +10,7 @@
 <form name="logout" action="doLogout.jsp" method="post">
         <input type="submit" id="button" name="sSubmit" value="Log out" />
 </form> 
-                            
+<br> 
+<form name="profile" action="profile.jsp" method="post">
+        <input type="submit" id="button" name="sProfile" value="See your profile!" />
+</form>

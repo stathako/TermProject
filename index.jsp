@@ -10,7 +10,6 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Secret Santa!</title>
-        <p>To site pros to paron exei mono leitourgies log in log out ,opou sindeetai epitixos sthn vasi dedomenon.</br>Gia na to deite : password=user=a.</p>
         <script>
             function trim(s)
             {
