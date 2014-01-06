@@ -22,3 +22,14 @@
        </tr>
      </table>
 </form>
+
+
+<form name="makeAccount.jsp" method="post" action="makeAccount.jsp">
+    <table cellspacing="0">
+        <tr>
+            <td>
+                <input type="submit" name="Submit" value="Register !">
+            </td>
+        </tr>
+    </table>
+</form>
