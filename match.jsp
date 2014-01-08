@@ -23,7 +23,6 @@
             Statement stmt = conn.createStatement();
             ResultSet  rs,rs1,rs2,rs3,rs4,rs5,rs6,rs7,rs8,rsmatch  ;
 
-
  
             rs = stmt.executeQuery("SELECT * from users WHERE username='"+session.getAttribute("username")+"';" );
             while ( rs.next() ) {
@@ -31,14 +30,21 @@
                     String mycity = rs.getString("city");
                     String myjob = rs.getString("job");
                     String myusername = rs.getString("username");                
-                    
-                    
+                    String myFirstMatch = rs.getString("mymatch");                
+
+                    if(myFirstMatch!= null  && !myFirstMatch.isEmpty()){ 
+                                session.setAttribute("match",  myFirstMatch);
+                    }        
+                    else {
                     rs1 = stmt.executeQuery("SELECT * from users WHERE age='"+myage+"' AND job='"+myjob+"' AND city='"+mycity+"' ;" );
                     while ( rs1.next() ) {
                                 String temp=rs1.getString("username");
-                                if(!temp.equals(myusername)){    
-                                            possibleMatches[counter]=rs1.getString("username");
-                                            counter++;
+                                String tempMatch=rs1.getString("mymatch");
+                                if(!temp.equals(myusername) ){ 
+                                            if( tempMatch== null   ){                                                                     
+                                                    possibleMatches[counter]=rs1.getString("username");
+                                                    counter++;
+                                            }        
                                }            
                     }
                     if (counter>0){
@@ -56,15 +62,18 @@
                                 while ( rs2.next() ) {
                                           
                                             String temp=rs2.getString("username");
-                                            if(!temp.equals(myusername)){
-                                                        possibleMatches[counter]=rs2.getString("username");
-                                                        counter++;
+                                            String tempMatch=rs2.getString("mymatch");
+                                            if(!temp.equals(myusername) ){ 
+                                                        if( tempMatch== null   ){                                                                     
+                                                                possibleMatches[counter]=rs2.getString("username");
+                                                                counter++;
+                                                        }        
                                             }                 
                                 }
                                 if (counter>0){
                                             Random generator = new Random();
                                             int randomIndex = generator.nextInt( counter );
-                                            String mymatch=possibleMatches[randomIndex];
+                                            String mymatch =possibleMatches[randomIndex];
                                             session.setAttribute("match",  mymatch);
 
                                 }
@@ -74,9 +83,12 @@
                                              while ( rs3.next() ) {
 
                                                          String temp=rs3.getString("username");
-                                                         if(!temp.equals(myusername)){
-                                                                      possibleMatches[counter]=rs3.getString("username");
-                                                                      counter++;
+                                                         String tempMatch=rs3.getString("mymatch");
+                                                         if(!temp.equals(myusername) ){ 
+                                                                    if( tempMatch==null  ){ 
+                                                                            possibleMatches[counter]=rs3.getString("username");
+                                                                            counter++;
+                                                                    }        
                                                          }                 
                                              }
                                              if (counter>0){
@@ -93,9 +105,12 @@
                                                         while ( rs4.next() ) {
 
                                                                     String temp=rs4.getString("username");
-                                                                    if(!temp.equals(myusername)){
-                                                                                 possibleMatches[counter]=rs4.getString("username");
-                                                                                 counter++;
+                                                                    String tempMatch=rs4.getString("mymatch");
+                                                                    if(!temp.equals(myusername) ){ 
+                                                                                if( tempMatch== null  ){                                                                     
+                                                                                        possibleMatches[counter]=rs4.getString("username");
+                                                                                        counter++;
+                                                                                }        
                                                                     }                 
                                                         }
                                                         if (counter>0){
@@ -112,10 +127,13 @@
                                                                       rs5 = stmt.executeQuery("SELECT * from users WHERE age='"+myage+"' ;" );
                                                                       while ( rs5.next() ) {
                                                                                   String temp=rs5.getString("username");
-                                                                                  if(!temp.equals(myusername)) {      
-                                                                                                possibleMatches[counter]=rs5.getString("username");
-                                                                                                counter++;
-                                                                                  }  
+                                                                                  String tempMatch=rs5.getString("mymatch");
+                                                                                  if(!temp.equals(myusername) ){ 
+                                                                                                if( tempMatch== null   ){                                                                     
+                                                                                                        possibleMatches[counter]=rs5.getString("username");
+                                                                                                        counter++;
+                                                                                                }        
+                                                                                    }  
                                                                       }
                                                                       if (counter>0){
                                                                                   Random generator = new Random();
@@ -132,10 +150,13 @@
                                                                                     rs6 = stmt.executeQuery("SELECT * from users WHERE job='"+myjob+"' ;" );
                                                                                     while ( rs6.next() ) {
                                                                                                 String temp=rs6.getString("username");
-                                                                                                if(!temp.equals(myusername)) {      
-                                                                                                              possibleMatches[counter]=rs6.getString("username");
-                                                                                                              counter++;
-                                                                                                }  
+                                                                                                String tempMatch=rs6.getString("mymatch");
+                                                                                                if(!temp.equals(myusername) ){ 
+                                                                                                            if( tempMatch== null    ){                                                                     
+                                                                                                                    possibleMatches[counter]=rs6.getString("username");
+                                                                                                                    counter++;
+                                                                                                            }        
+                                                                                                } 
                                                                                     }
                                                                                     if (counter>0){
                                                                                                 Random generator = new Random();
@@ -150,9 +171,12 @@
                                                                                                 rs7 = stmt.executeQuery("SELECT * from users WHERE city='"+mycity+"' ;" );
                                                                                                 while ( rs7.next() ) {
                                                                                                             String temp=rs7.getString("username");
-                                                                                                            if(!temp.equals(myusername)) {      
-                                                                                                                          possibleMatches[counter]=rs7.getString("username");
-                                                                                                                          counter++;
+                                                                                                            String tempMatch=rs7.getString("mymatch");
+                                                                                                            if(!temp.equals(myusername) ){ 
+                                                                                                                        if( tempMatch== null   ){                                                                     
+                                                                                                                                possibleMatches[counter]=rs7.getString("username");
+                                                                                                                                counter++;
+                                                                                                                        }        
                                                                                                             }  
                                                                                                 }
                                                                                                 if (counter>0){
@@ -168,10 +192,13 @@
                                                                                                           rs8 = stmt.executeQuery("SELECT * from users  ;" );
                                                                                                           while ( rs8.next() ) {
                                                                                                                       String temp=rs8.getString("username");
-                                                                                                                      if(!temp.equals(myusername)){
-                                                                                                                                     possibleMatches[counter]=rs8.getString("username");
-                                                                                                                                     counter++;
-                                                                                                                      }   
+                                                                                                                      String tempMatch=rs8.getString("mymatch");
+                                                                                                                     if(!temp.equals(myusername) ){ 
+                                                                                                                                if( tempMatch== null   ){                                                                     
+                                                                                                                                        possibleMatches[counter]=rs8.getString("username");
+                                                                                                                                        counter++;
+                                                                                                                                }        
+                                                                                                                     }   
                                                                                                           }
                                                                                                           if (counter>0){
                                                                                                                       Random generator = new Random();
@@ -193,7 +220,9 @@
                                                         
                                              }
                                              
-                                }    
+                                }  
+                            }
+                    
                                 String mymatch=(String)session.getAttribute("match");
                                 rsmatch = stmt.executeQuery("SELECT * from users WHERE username='"+mymatch+"';" );
                                 
@@ -227,7 +256,7 @@
                                  }
                                 
                                 
-                                         
+                                       
                           }//while
                               
                     
@@ -252,6 +281,9 @@
 </form>
 <br>
   
-
+<form name="lock" action="lock.jsp" method="post">
+        <input type="submit" id="button" name="sLock" value="Lock this match!" />
+</form>
+<br>
 
 </html>
