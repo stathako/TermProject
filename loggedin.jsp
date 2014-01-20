@@ -5,8 +5,17 @@
 --%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<p>Welcome <%=session.getAttribute("username")%></p>
+<% 
+   String name=(String)session.getAttribute("username");
+   Cookie Cusername = new Cookie("username",name);
+   
+   Cusername.setMaxAge(60*60*24); 
+   
+   response.addCookie( Cusername );
+%>
+      
 
+<p>Welcome <%=Cusername.getValue()%> !!!</p>
 <form name="logout" action="doLogout.jsp" method="post">
         <input type="submit" id="button" name="sSubmit" value="Log out" />
 </form> 
@@ -14,3 +23,4 @@
 <form name="profile" action="profile.jsp" method="post">
         <input type="submit" id="button" name="sProfile" value="See your profile!" />
 </form>
+

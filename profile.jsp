@@ -9,6 +9,8 @@
 <html>
 <%@ page language="java" import="java.sql.*" errorPage=""%>
 <%@ page import="java.util.*"%>
+
+
 <%                
    
      try{   
@@ -65,7 +67,12 @@
 <form name="match" action="match.jsp" method="post">
         <input type="submit" id="button" name="sMatch" value="See your match!" />
 </form>
+<br>
+<form name="logout" action="doLogout.jsp" method="post">
+        <input type="submit" id="button" name="sSubmit" value="Log out" />
+</form>
 
-
-
+<form name="reset" action="reset.jsp" method="post">
+        <input type="submit" id="button" name="sSubmit" value="Reset your information" />
+</form>
 </html>

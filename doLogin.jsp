@@ -4,8 +4,12 @@
     Author     : nikos
 --%>
 <%@ page language="java" import="java.sql.*" errorPage="" %>
+  
+
 <%
 
+    
+    
     Connection conn = null;
     Class.forName("com.mysql.jdbc.Driver").newInstance();
     conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/SecretSanta","root", "");

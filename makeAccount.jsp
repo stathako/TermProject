@@ -72,18 +72,7 @@
            city.focus();
            return false;
        }
-       if (link.value == "")
-       {
-           alert("You have to paste a link of a picture of you.");
-           link.focus();
-           return false;
-       }
-       if (tweet.value == "")
-       {
-           alert("Please write something!!");
-           tweet.focus();
-           return false;
-       }
+       
        else{
        return true;
        }
@@ -95,7 +84,7 @@
         
     </head>
     <body>
-        <form name="form1" method="post" action="reg.jsp" onSubmit="return validate(this)">
+        <form name="form1" method="post" action="regServlet" onSubmit="return validate(this)">
             <center>
             <table border="1" width="30%" cellpadding="5">
                 <thead>
@@ -105,35 +94,35 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>First Name</td>
+                        <td>*First Name</td>
                         <td>&nbsp;<input type="text"  name="firstname" value="" /></td>
                     </tr>
                     <tr>
-                        <td>Last Name</td>
+                        <td>*Last Name</td>
                         <td>&nbsp;<input type="text" name="lastname" value="" /></td>
                     </tr>
                     <tr>
-                        <td>User Name</td>
+                        <td>*User Name</td>
                         <td>&nbsp;<input type="text" name="username" value="" /></td>
                     </tr>
                     <tr>
-                        <td>Password</td>
+                        <td>*Password</td>
                         <td>&nbsp;<input type="password" name="pass" value="" /></td>
                     </tr>
                     <tr>
-                        <td>Email</td>
+                        <td>*Email</td>
                         <td>&nbsp;<input type="text" name="email" value="" /></td>
                     </tr>
                      <tr>
-                        <td>Job</td>
+                        <td>*Job</td>
                         <td>&nbsp;<input type="text" name="job" value="" /></td>
                     </tr>
                      <tr>
-                        <td>Age</td>
+                        <td>*Age</td>
                         <td>&nbsp;<input type="text" name="age" value="" /></td>
                     </tr>
                      <tr>
-                        <td>City</td>
+                        <td>*City</td>
                         <td>&nbsp;<input type="text" name="city" value="" /></td>
                     </tr>
                     <tr>

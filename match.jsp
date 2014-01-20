@@ -34,8 +34,45 @@
 
                     if(myFirstMatch!= null  && !myFirstMatch.isEmpty()){ 
                                 session.setAttribute("match",  myFirstMatch);
+                                %>
+                                <form name="logout" action="doLogout.jsp" method="post">
+                                        <input type="submit" id="button" name="sSubmit" value="Log out" />
+                                </form>
+                                <br>
+                                
+                                <p>It seems that you are locked with :<%=myFirstMatch%> !!! <br>
+                                            If you want to unlock this match :                               
+                                </p>  
+                                <form name="unlock" action="unlock.jsp" method="post">
+                                        <input type="submit" id="button" name="sUnLock" value="unlock" />
+                                </form>
+                                <br>
+                                
+<%
+
                     }        
                     else {
+                        
+%>                        
+                    <form name="logout" action="doLogout.jsp" method="post">
+                            <input type="submit" id="button" name="sSubmit" value="Log out" />
+                    </form>
+                    <br>
+
+                    <form name="lock" action="lock.jsp" method="post">
+                            <input type="submit" id="button" name="sLock" value="Lock this match!" />
+                    </form>
+                    <br>
+
+                    <form name="look" action="match.jsp" method="post">
+                            <input type="submit" id="button" name="sLook" value="Look for other matches!" />
+                    </form>
+                    <p>
+                            if the same person appears again then you have to wait for other users with common interests with you to register!
+                    </p>
+                    <br>
+<%                        
+                        
                     rs1 = stmt.executeQuery("SELECT * from users WHERE age='"+myage+"' AND job='"+myjob+"' AND city='"+mycity+"' ;" );
                     while ( rs1.next() ) {
                                 String temp=rs1.getString("username");
@@ -276,14 +313,5 @@
 %>
 
 
-<form name="logout" action="doLogout.jsp" method="post">
-        <input type="submit" id="button" name="sSubmit" value="Log out" />
-</form>
-<br>
-  
-<form name="lock" action="lock.jsp" method="post">
-        <input type="submit" id="button" name="sLock" value="Lock this match!" />
-</form>
-<br>
 
 </html>
