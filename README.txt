@@ -16,4 +16,4 @@ An iparxoun polloi me idies plirofories sta age,city,job epilegei tyxaia ,an den
 Exw xrisimopoiisi vs tvra : html5,mysql,javascript,jsp,servlets,cookies 
 
 
-to site vrisketai edo :  http://83.212.97.152:8080/SecretSanta/
+to site vrisketai edo :  http://83.212.101.70:8080/SecretSanta/
