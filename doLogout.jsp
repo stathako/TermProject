@@ -12,7 +12,7 @@
     request.getSession(false).invalidate();
     
 
-    String redirectURL = "http://83.212.97.152:8080/SecretSanta/";
+    String redirectURL = "http://83.212.101.70:8080/SecretSanta/";
     response.sendRedirect(redirectURL);
 
 

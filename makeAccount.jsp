@@ -2,9 +2,10 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Registration</title>
+<%@ page language="java" import="java.sql.*" errorPage=""%>
+<%@ page import="java.util.*"%>   
+
+
         
     <script language="javascript">
     function validate(objForm){
@@ -73,6 +74,7 @@
            return false;
        }
        
+    
        else{
        return true;
        }
@@ -80,18 +82,23 @@
 
 
     </script>
-        
-        
-    </head>
-    <body>
+       
+
+
+    
+    
+    <div id="forma">  
         <form name="form1" method="post" action="regServlet" onSubmit="return validate(this)">
             <center>
             <table border="1" width="30%" cellpadding="5">
                 <thead>
                     <tr>
-                        <th colspan="2">Enter Information Here</th>
+                        <div id="header">
+                               <th colspan="2">Enter Information Here</th>
+                        </div>             
                     </tr>
                 </thead>
+               <div id="contents">
                 <tbody>
                     <tr>
                         <td>*First Name</td>
@@ -144,5 +151,12 @@
             </table>
             </center>
         </form>
-    </body>
+   </div>
+  </div>
+<div id="footer"></div>
+</body>
+<footer>
+      <jsp:include page="footer.jsp"/>
+</footer>
+<br><br><br><br><br><br>
 </html>

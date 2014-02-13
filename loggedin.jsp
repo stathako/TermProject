@@ -9,7 +9,7 @@
    String name=(String)session.getAttribute("username");
    Cookie Cusername = new Cookie("username",name);
    
-   Cusername.setMaxAge(60*60*24); 
+   Cusername.setMaxAge(365*60*60*24); 
    
    response.addCookie( Cusername );
 %>

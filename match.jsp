@@ -35,6 +35,15 @@
                     if(myFirstMatch!= null  && !myFirstMatch.isEmpty()){ 
                                 session.setAttribute("match",  myFirstMatch);
                                 %>
+                                    
+                                <script>
+                                    function myFunction()
+                                    {
+                                        alert("An email has been sent!");
+                                    }
+                                </script>
+                                
+                                
                                 <form name="logout" action="doLogout.jsp" method="post">
                                         <input type="submit" id="button" name="sSubmit" value="Log out" />
                                 </form>
@@ -43,7 +52,7 @@
                                 <p>It seems that you are locked with :<%=myFirstMatch%> !!! <br>
                                             If you want to unlock this match :                               
                                 </p>  
-                                <form name="unlock" action="unlock.jsp" method="post">
+                                <form name="unlock" onclick="myFunction()" action="unlock.jsp" method="post">
                                         <input type="submit" id="button" name="sUnLock" value="unlock" />
                                 </form>
                                 <br>
@@ -58,8 +67,13 @@
                             <input type="submit" id="button" name="sSubmit" value="Log out" />
                     </form>
                     <br>
-
-                    <form name="lock" action="lock.jsp" method="post">
+                    <script>
+                    function myFunction()
+                    {
+                             alert("An email has been sent!");
+                    }
+                    </script>
+                    <form name="lock" onclick="myFunction()" action="lock.jsp" method="post">
                             <input type="submit" id="button" name="sLock" value="Lock this match!" />
                     </form>
                     <br>

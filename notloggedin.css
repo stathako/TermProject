@@ -1,0 +1,152 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 29-Jan-2014, 20:51:52
+    Author     : nikos
+*/
+
+
+
+#header{
+   /* IE10 Consumer Preview */
+background-image: -ms-radial-gradient(right bottom, ellipse closest-side, #600000 0%, #600000 100%);
+
+/* Mozilla Firefox */
+background-image: -moz-radial-gradient(right bottom, ellipse closest-side, #600000 0%, #600000 100%);
+
+/* Opera */
+background-image: -o-radial-gradient(right bottom, ellipse closest-side, #600000 0%, #600000 100%);
+
+/* Webkit (Safari/Chrome 10) */
+background-image: -webkit-gradient(radial, right bottom, 0, right bottom, 0, color-stop(0, #600000), color-stop(1, #600000));
+
+/* Webkit (Chrome 11+) */
+background-image: -webkit-radial-gradient(right bottom, ellipse closest-side, #600000 0%, #600000 100%);
+
+/* W3C Markup, IE10 Release Preview */
+background-image: radial-gradient(ellipse closest-side at right bottom, #600000 0%, #600000 100%);
+    
+    
+}
+
+#cys{
+     margin-left: 12%;
+    width: auto;
+}
+
+#insert{
+    width: 48%;
+    float: right;
+    padding-top: 0.4%;
+    
+    
+}
+
+#register{
+    float: right;
+    width:40%;
+    
+}
+
+#login{
+    float:left;
+    width:50%;
+}
+#button{
+
+}
+
+@media only screen and (max-width: 1200px) {
+    #cys{
+       
+        width:auto;
+        margin-left: 14%;
+    }
+    #insert{
+        width: 62%;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    #cys{
+    width:auto;
+        margin-left: 14%;
+    }
+    #insert{
+        width: 76%;
+    }
+    
+    #login,#register{
+        display: block;
+    }
+    
+
+}
+@media only screen and (max-width: 770px) {
+    #register{
+        float: none;
+    }
+}
+@media only screen and (max-width: 570px) {
+    #insert{
+        float: none;
+    }
+    #cys,#login,#register{
+        display: block;
+        float: none;
+    }
+
+}
+@media only screen and (max-width: 480px) {
+    blody{
+        
+        
+    }
+    #login,#register{
+        width: 100%;
+        display: block;
+        
+    }
+    
+    
+}
+
+
+
+
+img {
+    max-width: 100%;
+    height: auto;
+    width: auto\9; /* ie8 */
+}
+
+
+
+
+#intro
+{
+ margin-left: auto;
+    margin-right: auto;
+    width: 70em
+
+}
+#some{
+    
+    font-family:"Comic Sans MS", cursive, sans-serif;
+    //font-weight:bolder;
+    
+}
+
+#parent {
+    width:1450px;
+}
+
+.userimage {
+    float: left;
+    width: 350px;
+    height:250px;
+    
+}

@@ -64,6 +64,27 @@
     
 
 %>
+
+
+
+
+<script>
+function myFunction()
+{
+//var x;
+var r=confirm("This action will erase your current information.\n Are you sure");
+if (r==true)
+  {
+  document.getElementById("myForm").action="reset.jsp";
+  }
+else
+  {
+  window.location = "http://83.212.101.70:8080/SecretSanta/profile.jsp"
+  }
+}
+</script>
+
+
 <form name="match" action="match.jsp" method="post">
         <input type="submit" id="button" name="sMatch" value="See your match!" />
 </form>
@@ -72,7 +93,7 @@
         <input type="submit" id="button" name="sSubmit" value="Log out" />
 </form>
 
-<form name="reset" action="reset.jsp" method="post">
+<form id="myForm" name="reset" onclick="myFunction()" action="index.jsp"  method="post">
         <input type="submit" id="button" name="sSubmit" value="Reset your information" />
 </form>
 </html>

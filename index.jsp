@@ -8,6 +8,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+         <link rel="stylesheet" type="text/css" href="index.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Secret Santa!</title>
         <script>
@@ -53,4 +54,7 @@
 %>
    
     </body>
+  <footer>
+      <jsp:include page="footer.jsp"/>
+  </footer>
 </html>
