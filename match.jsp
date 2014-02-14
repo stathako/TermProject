@@ -31,6 +31,13 @@ function myFunctionEmail()
           alert("An email has been sent!");
 }
 </script>
+<%
+session = request.getSession(false);
+if (session == null || session.getAttribute("username")==null){
+    response.sendRedirect("index.jsp");
+}
+else{
+%>
 
  <div id ="header"> 
         <div id="insert">
@@ -369,3 +376,4 @@ String mymatch=(String)session.getAttribute("match");
 
 
 </html>
+<%}%>

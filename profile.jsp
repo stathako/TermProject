@@ -28,6 +28,13 @@ else
   }
 }
 </script>
+<%
+session = request.getSession(false);
+if (session == null || session.getAttribute("username")==null){
+    response.sendRedirect("index.jsp");
+}
+else{
+%>
 
  <div id ="header"> 
         <div id="insert">
@@ -118,3 +125,4 @@ else
 
 
 </html>
+<%}%>

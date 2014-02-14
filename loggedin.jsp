@@ -6,6 +6,14 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <link rel="stylesheet" type="text/css" href="loggedin.css">
+<%
+session = request.getSession(false);
+if (session == null || session.getAttribute("username")==null){
+    response.sendRedirect("index.jsp");
+}
+else{
+%>
+
 <% 
    String name=(String)session.getAttribute("username");
    Cookie Cusername = new Cookie("username",name);
@@ -39,3 +47,4 @@
 <div id =wel>
    <h1>Welcome <%=Cusername.getValue()%> !!!</h1>
 </div>
+<%}%>

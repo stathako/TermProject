@@ -14,6 +14,13 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%@ page import="core.*" %>
+<%
+session = request.getSession(false);
+if (session == null || session.getAttribute("username")==null){
+    response.sendRedirect("index.jsp");
+}
+else{
+%>
 
 <%
     String fmatch=(String)session.getAttribute("match");
@@ -72,3 +79,4 @@
 %>
 
         <jsp:include page="profile.jsp"/>
+<%}%>

@@ -5,7 +5,13 @@
 --%>
 <%@ page language="java" import="java.sql.*" errorPage=""%>
 <%@ page import="java.util.*"%>
-
+<%
+session = request.getSession(false);
+if (session == null || session.getAttribute("username")==null){
+    response.sendRedirect("index.jsp");
+}
+else{
+%>
 <%
     try{
     Connection conn = null;
@@ -36,4 +42,4 @@
     
   
 %>
-
+<%}%>
