@@ -74,7 +74,7 @@
 
     
 <div id="some"> 
-  <p><h2>Some of our recently registered users:</h2></p>
+  <h2>Some of our recently registered users:</h2>
 </div>
 <br><br> 
 <%
@@ -142,7 +142,7 @@
                                 <%
 
                                 %> 
-                                <div class="userimage">
+                                 <div class="userimage">
                                              <img src="<%=mlink[7]%>" border="0"  width="350" height="250" alt="Submit Form" onclick="myFunction()"> <br> 
                                 </div>
                            </div>

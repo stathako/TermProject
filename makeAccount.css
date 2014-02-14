@@ -1,0 +1,49 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 13-Feb-2014, 22:41:22
+    Author     : nikos
+*/
+body {
+ position: relative;
+ height : auto;
+ padding-bottom: 3%;
+min-width:900px;
+background-image:url('images/Dear.jpg');
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+ background-size: cover;
+
+
+ 
+}
+
+
+
+#table
+{
+font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+border-collapse:collapse;
+}
+
+#table th ,#table td
+{
+text-align:center;
+padding-top:5px;
+padding-bottom:4px;
+background-color:#A80000 ;
+color:#ffffff;
+
+}
+#table tr.alt td 
+{
+color:#A80000 ;
+background-color:#A80000 ;
+}
+
+
+

@@ -4,7 +4,7 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
 /* 
-    Created on : 29-Jan-2014, 20:51:52
+    Created on : 14-Feb-2014, 14:45:55
     Author     : nikos
 */
 
@@ -38,22 +38,22 @@ background-image: radial-gradient(ellipse closest-side at right bottom, #600000 
 }
 
 #insert{
-    width: 48%;
+    width: auto;//48%;
     float: right;
     padding-top: 0.4%;
     
     
 }
 
-#register{
+#see{
     float: right;
-    width:40%;
+    width:auto;//40%;
     
 }
 
-#login{
+#logout{
     float:left;
-    width:50%;
+    width:auto;//50%;
 }
 #button{
 
@@ -66,7 +66,7 @@ background-image: radial-gradient(ellipse closest-side at right bottom, #600000 
         margin-left: 14%;
     }
     #insert{
-        width: 62%;
+        width:auto;// 62%;
     }
 }
 
@@ -76,17 +76,17 @@ background-image: radial-gradient(ellipse closest-side at right bottom, #600000 
         margin-left: 14%;
     }
     #insert{
-        width: 76%;
+        width:auto;// 76%;
     }
     
-    #login,#register{
+    #logout,#see{
         display: block;
     }
     
 
 }
 @media only screen and (max-width: 770px) {
-    #register{
+    #see{
         float: none;
     }
 }
@@ -94,7 +94,7 @@ background-image: radial-gradient(ellipse closest-side at right bottom, #600000 
     #insert{
         float: none;
     }
-    #cys,#login,#register{
+    #cys,#logout,#see{
         display: block;
         float: none;
     }
@@ -105,7 +105,7 @@ background-image: radial-gradient(ellipse closest-side at right bottom, #600000 
         
         
     }
-    #login,#register{
+    #logout,#see{
         width: 100%;
         display: block;
         
@@ -115,45 +115,23 @@ background-image: radial-gradient(ellipse closest-side at right bottom, #600000 
 }
 
 
+body {
+ position: relative;
+ height : auto;
+ padding-bottom: 3%;
+min-width:900px;
+background-image:url('images/elf2.jpg');
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+ background-size: cover;
+ 
+}
 
 
-img {
-    max-width: 100%;
-    height: auto;
-    width: auto\9; /* ie8 */
+#wel,#info{
+     font-family:"Comic Sans MS", cursive, sans-serif;
 }
 
 
 
-
-#intro
-{
- margin-left: auto;
-    margin-right: auto;
-    width: 70em
-
-}
-#some{
-    
-    font-family:"Comic Sans MS", cursive, sans-serif;
-    //font-weight:bolder;
-    
-}
-
-#parent {
-    width:1400px;
-    height:150px;
-}
-
-.userimage {
-   
-    
-    //position: relative;
-    float: left;
-    width: 350px;
-    height: 250px;
-   // background-position: 50% 50%;
-   // background-repeat: no-repeat;
-    //background-size: cover;
-    
-}

@@ -6,15 +6,57 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+  <link rel="stylesheet" type="text/css" href="loggedin.css">
+
 <%@ page language="java" import="java.sql.*" errorPage=""%>
-<%@ page import="java.util.*"%>      
+<%@ page import="java.util.*"%>    
+
+<script>
+function myFunction()
+{
+//var x;
+var r=confirm("This action will erase your current information.\n Are you sure");
+if (r==true)
+  {
+  document.getElementById("myForm").action="reset.jsp";
+  }
+else
+  {
+  window.location = "http://83.212.101.70:8080/SecretSanta/match.jsp"
+  }
+}
+
+function myFunctionEmail()
+{
+          alert("An email has been sent!");
+}
+</script>
+
+ <div id ="header"> 
+        <div id="insert">
+            <div id ="see">
+               
+                <form id="myForm" name="reset" onclick="myFunction()" action="index.jsp"  method="post">
+                        <input type="submit" id="button" name="sSubmit" value="Reset your information" />
+                </form>
+            </div>
+            <div id ="logout">
+                <form name="logout" action="doLogout.jsp" method="post">
+                        <input type="submit" id="button" name="sSubmit" value="Log out" />
+                </form>
+            </div>    
+                
+        </div>
+          <a href="http://83.212.101.70:8080/SecretSanta/"><img src="images/cys.png" id="cys"></a>
+</div>
+<br><br><br><br>
 <%                
    
      try{   
             int counter=0;
             String[] possibleMatches = new String[20];
-            
-            
+           
+
             Connection conn = null;
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/SecretSanta","root", "");
@@ -33,59 +75,15 @@
                     String myFirstMatch = rs.getString("mymatch");                
 
                     if(myFirstMatch!= null  && !myFirstMatch.isEmpty()){ 
+                                String printflag="1";
+                                session.setAttribute("printflag",printflag);
                                 session.setAttribute("match",  myFirstMatch);
-                                %>
-                                    
-                                <script>
-                                    function myFunction()
-                                    {
-                                        alert("An email has been sent!");
-                                    }
-                                </script>
-                                
-                                
-                                <form name="logout" action="doLogout.jsp" method="post">
-                                        <input type="submit" id="button" name="sSubmit" value="Log out" />
-                                </form>
-                                <br>
-                                
-                                <p>It seems that you are locked with :<%=myFirstMatch%> !!! <br>
-                                            If you want to unlock this match :                               
-                                </p>  
-                                <form name="unlock" onclick="myFunction()" action="unlock.jsp" method="post">
-                                        <input type="submit" id="button" name="sUnLock" value="unlock" />
-                                </form>
-                                <br>
-                                
-<%
+
 
                     }        
                     else {
-                        
-%>                        
-                    <form name="logout" action="doLogout.jsp" method="post">
-                            <input type="submit" id="button" name="sSubmit" value="Log out" />
-                    </form>
-                    <br>
-                    <script>
-                    function myFunction()
-                    {
-                             alert("An email has been sent!");
-                    }
-                    </script>
-                    <form name="lock" onclick="myFunction()" action="lock.jsp" method="post">
-                            <input type="submit" id="button" name="sLock" value="Lock this match!" />
-                    </form>
-                    <br>
-
-                    <form name="look" action="match.jsp" method="post">
-                            <input type="submit" id="button" name="sLook" value="Look for other matches!" />
-                    </form>
-                    <p>
-                            if the same person appears again then you have to wait for other users with common interests with you to register!
-                    </p>
-                    <br>
-<%                        
+                                String printflag="0";
+                                session.setAttribute("printflag",printflag);
                         
                     rs1 = stmt.executeQuery("SELECT * from users WHERE age='"+myage+"' AND job='"+myjob+"' AND city='"+mycity+"' ;" );
                     while ( rs1.next() ) {
@@ -280,29 +278,31 @@
                                 while ( rsmatch.next() ) { 
                                            String mlink = rsmatch.getString("link");
                                            %> 
+                                           
+                                           <div id="info">
                                            <div class="photo">
                                                       <img src="<%=mlink%>" border="0"  width="350" height="250"> <br> 
                                            </div>
                                            <% 
                                            String mtweet = rsmatch.getString("tweet");
-                                           %>          <p><%=mtweet%></p> <br>    <%
+                                           %>          <h2><%=mtweet%></h2> <br>    <%
 
                                            String mfirstname = rsmatch.getString("firstname");
                                            String mlastname = rsmatch.getString("lastname");
-                                           %>          <p>name:<%=mfirstname%>  <%=mlastname%></p>     <%
+                                           %>          <h3>name:<%=mfirstname%>  <%=mlastname%></h3>     <%
 
                                            String musername = rsmatch.getString("username");
-                                           %>          <p>username:<%=musername%></p>     <%  
+                                           %>          <h3>username:<%=musername%></h3>     <%  
 
                                            //  String fpass = rs.getString("pass");
                                            String memail = rsmatch.getString("email");
-                                           %>          <p>email:<%=memail%></p>     <%
+                                           %>          <h3>email:<%=memail%></h3>     <%
                                            String mjob = rsmatch.getString("job");
-                                           %>          <p>profession:<%=mjob%></p>     <%
+                                           %>          <h3>profession:<%=mjob%></h3>     <%
                                            String mage = rsmatch.getString("age");
-                                           %>          <p>age:<%=mage%></p>     <%
+                                           %>          <h3>age:<%=mage%></h3>     <%
                                            String mcity = rsmatch.getString("city");
-                                           %>          <p>hometown:<%=mcity%></p>  <br>   <%
+                                           %>          <h3>hometown:<%=mcity%></h3>  <br>   <%
 
                                  }
                                 
@@ -322,10 +322,50 @@
                     System.err.println(e.getMessage());
        
        }
-    
+
+String flag=(String)session.getAttribute("printflag"); 
+String zero="0";  
+if (flag.equals(zero)){
+%>
+</div>
+                    
+ <form name="lock" onclick="myFunctionEmail()" action="lock.jsp" method="post">
+           <input type="submit" id="button" name="sLock" value="Lock this match!" />
+</form>
+<br>
+
+<form name="look" action="match.jsp" method="post">
+          <input type="submit" id="button" name="sLook" value="Look for other matches!" />
+</form>
+<div id="info">
+    <h4>
+      if the same person appears again then you have to wait<br> for other users with common interests with you to register!
+    </h4>
+</div>
+<br><br><br><br>
+<br><br>
+<%}
+else{
+String mymatch=(String)session.getAttribute("match");
 
 %>
 
+   <br><br><br><br>                            
+<div id="info">
+        <h2>It seems that you are locked with :<%=mymatch%> !!! <br> It's time to buy a present!!!<br></h2> 
+              <h4>  If you want to unlock this match :  </h4>                             
+        
+</div>            
+<form name="unlock" onclick="myFunctionEmail()" action="unlock.jsp" method="post">
+           <input type="submit" id="button" name="sUnLock" value="unlock" />
+</form>
+<br><br><br><br><br><br>
+                                
+ <%}%>                               
+                                
+ <footer>
+<jsp:include page="footer.jsp"/>
+</footer>
 
 
 </html>
